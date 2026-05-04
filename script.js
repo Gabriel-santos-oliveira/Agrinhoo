@@ -1,13 +1,13 @@
 let contador = 0;
 
-// Carregar preferências
+// Carregar dados
 window.onload = function () {
-    let nomeSalvo = localStorage.getItem("nome");
+    let nome = localStorage.getItem("nome");
     let dark = localStorage.getItem("dark");
 
-    if (nomeSalvo) {
+    if (nome) {
         document.getElementById("mensagem").innerText =
-            "Bem-vindo de volta, " + nomeSalvo + " 🌱";
+            "Bem-vindo de volta, " + nome + " 🌱";
     }
 
     if (dark === "true") {
@@ -15,13 +15,13 @@ window.onload = function () {
     }
 };
 
-// Salvar nome
+// Nome
 function salvarNome() {
     let nome = document.getElementById("nome").value;
 
-    if (nome.trim() === "") {
+    if (nome === "") {
         document.getElementById("mensagem").innerText =
-            "Digite seu nome.";
+            "Digite seu nome!";
         return;
     }
 
@@ -31,7 +31,7 @@ function salvarNome() {
         "Olá, " + nome + " 🌱";
 }
 
-// Mostrar conteúdo
+// Mostrar info
 function toggleInfo() {
     document.getElementById("extra").classList.toggle("hidden");
 }
@@ -43,32 +43,29 @@ function plantar() {
     document.getElementById("contador").innerText = contador;
 
     let progresso = contador * 10;
-
-    if (progresso > 100) {
-        progresso = 100;
-    }
+    if (progresso > 100) progresso = 100;
 
     document.getElementById("progresso").style.width =
         progresso + "%";
 }
 
-// Abrir sites externos
+// Links
 function abrirSite(url) {
     window.open(url, "_blank");
 }
 
 // Quiz
 function responder(correto) {
-    let resultado = document.getElementById("resultado");
+    let res = document.getElementById("resultado");
 
     if (correto) {
-        resultado.innerText = "✅ Correto!";
+        res.innerText = "✅ Correto!";
     } else {
-        resultado.innerText = "❌ Resposta incorreta.";
+        res.innerText = "❌ Errado!";
     }
 }
 
-// Scroll suave
+// Scroll
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({
         behavior: "smooth"
@@ -78,11 +75,7 @@ function scrollToSection(id) {
 // Modo escuro
 function modoEscuro() {
     let body = document.getElementById("body");
-
     body.classList.toggle("dark");
 
-    localStorage.setItem(
-        "dark",
-        body.classList.contains("dark")
-    );
+    localStorage.setItem("dark", body.classList.contains("dark"));
 }
