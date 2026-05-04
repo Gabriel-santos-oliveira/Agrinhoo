@@ -1,80 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte - Futuro Sustentável</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro Forte</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="body">
 
 <header>
-    <h1>🌱 Agro Forte</h1>
-    <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
+  <h1>🌱 Agro Forte</h1>
+  <p>Produzir hoje sem destruir o amanhã</p>
 </header>
 
 <nav>
-    <button onclick="scrollToSection('sobre')">Sobre</button>
-    <button onclick="scrollToSection('sustentabilidade')">Sustentabilidade</button>
-    <button onclick="scrollToSection('tecnologia')">Tecnologia</button>
+  <button onclick="scrollToSection('sobre')">Sobre</button>
+  <button onclick="scrollToSection('impacto')">Impacto</button>
+  <button onclick="scrollToSection('quiz')">Quiz</button>
 </nav>
 
 <section id="usuario">
-    <h2>Bem-vindo!</h2>
-    
-    <label for="nome">Digite seu nome:</label>
-    <input type="text" id="nome">
-    <button onclick="saudacao()">Entrar</button>
+  <h2>👋 Bem-vindo</h2>
+  
+  <label>Seu nome:</label>
+  <input type="text" id="nome">
+  <button onclick="salvarNome()">Entrar</button>
 
-    <p id="mensagem"></p>
+  <p id="mensagem"></p>
 </section>
 
 <section id="sobre">
-    <h2>🌾 Sobre o Agro</h2>
-    <p>
-        O agro brasileiro é um dos pilares da economia, responsável por alimentar milhões de pessoas.
-        O desafio atual é produzir mais, preservando o meio ambiente.
-    </p>
+  <h2>🌾 Agro Sustentável</h2>
+  <p>
+    O futuro depende de um agro forte e consciente.
+    Produzir com responsabilidade é garantir recursos para as próximas gerações.
+  </p>
 
-    <button onclick="toggleInfo('info1')">Saiba mais</button>
-    <div id="info1" class="hidden">
-        A sustentabilidade no campo envolve práticas como rotação de culturas, uso consciente da água e preservação do solo.
-    </div>
+  <button onclick="toggleInfo()">Ver mais</button>
+  <div id="extra" class="hidden">
+    Tecnologias como agricultura de precisão ajudam a reduzir impactos ambientais.
+  </div>
 </section>
 
-<section id="sustentabilidade">
-    <h2>🌍 Sustentabilidade</h2>
+<section id="impacto">
+  <h2>🌍 Seu Impacto</h2>
 
-    <button onclick="abrirSite('https://www.embrapa.br')">EMBRAPA</button>
-    <button onclick="abrirSite('https://www.fao.org')">FAO</button>
-    <button onclick="abrirSite('https://www.gov.br/agricultura')">Ministério da Agricultura</button>
+  <p>Árvores preservadas:</p>
+  <h3 id="contador">0</h3>
 
+  <button onclick="plantar()">Plantar árvore 🌱</button>
+
+  <div class="barra">
+    <div id="progresso"></div>
+  </div>
 </section>
 
-<section id="tecnologia">
-    <h2>🚜 Tecnologia no Campo</h2>
+<section id="quiz">
+  <h2>🎮 Quiz Sustentável</h2>
 
-    <button onclick="abrirSite('https://www.climatefieldview.com.br')">Agricultura Digital</button>
-    <button onclick="abrirSite('https://www.agrosmart.com.br')">Agro Smart</button>
-    <button onclick="abrirSite('https://www.syngenta.com')">Syngenta</button>
+  <p>Qual prática ajuda o meio ambiente?</p>
 
+  <button onclick="resposta(true)">Rotação de culturas</button>
+  <button onclick="resposta(false)">Desmatamento</button>
+
+  <p id="resultado"></p>
 </section>
 
-<section id="contador">
-    <h2>🌿 Impacto Sustentável</h2>
-    <p>Árvores preservadas:</p>
-    <p id="numero">0</p>
-    <button onclick="aumentarContador()">Preservar 🌱</button>
+<section id="links">
+  <h2>🔗 Aprenda mais</h2>
+
+  <button onclick="abrir('https://www.embrapa.br')">EMBRAPA</button>
+  <button onclick="abrir('https://www.fao.org')">FAO</button>
+  <button onclick="abrir('https://www.gov.br/agricultura')">Governo</button>
 </section>
 
 <section id="config">
-    <h2>⚙️ Configurações</h2>
-    <button onclick="modoEscuro()">Modo Escuro</button>
+  <h2>⚙️ Configurações</h2>
+  <button onclick="modoEscuro()">Modo Escuro</button>
 </section>
 
 <footer>
-    <p>Projeto Agrinho - Educação e Sustentabilidade</p>
+  <p>Projeto Agrinho 🌱</p>
 </footer>
 
 <script src="js/script.js"></script>
