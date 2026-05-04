@@ -1,31 +1,33 @@
-/* ESTILO GERAL */
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #e8f5e9, #c8e6c9);
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
     transition: 0.3s;
 }
 
-/* CABEÇALHO */
-header {
-    text-align: center;
+.topo {
     background: #1b5e20;
     color: white;
-    padding: 20px;
+    text-align: center;
+    padding: 25px;
 }
 
-/* MENU */
-nav {
+.menu {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 15px;
     flex-wrap: wrap;
+    gap: 10px;
+    background: #2e7d32;
+    padding: 10px;
 }
 
-/* BOTÕES */
 button {
-    padding: 12px 18px;
+    padding: 12px;
     border: none;
     border-radius: 8px;
     background: #43a047;
@@ -35,49 +37,44 @@ button {
 }
 
 button:hover {
-    background: #2e7d32;
+    background: #1b5e20;
     transform: scale(1.05);
 }
 
-/* SEÇÕES */
-section {
+.card {
+    background: white;
     margin: 20px;
     padding: 20px;
-    background: white;
     border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ESCONDER */
 .hidden {
     display: none;
 }
 
-/* INPUT */
-input {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-/* BARRA DE PROGRESSO */
-.barra-container {
+.barra {
     width: 100%;
-    height: 25px;
+    height: 20px;
     background: #ddd;
-    border-radius: 20px;
-    margin-top: 10px;
+    border-radius: 10px;
 }
 
-#barra {
+#progresso {
     width: 0%;
     height: 100%;
     background: green;
-    border-radius: 20px;
     transition: 0.4s;
 }
 
-/* FOOTER */
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.dark .card {
+    background: #1e1e1e;
+}
+
 footer {
     text-align: center;
     padding: 15px;
@@ -85,24 +82,8 @@ footer {
     color: white;
 }
 
-/* DARK MODE */
-.dark {
-    background: #121212;
-    color: white;
-}
-
-.dark section {
-    background: #1e1e1e;
-}
-
-/* RESPONSIVO */
 @media (max-width: 768px) {
-    nav {
+    .menu {
         flex-direction: column;
-        align-items: center;
-    }
-
-    button {
-        width: 90%;
     }
 }
