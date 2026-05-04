@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte - Futuro Sustentável</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="body">
+
+<header>
+    <h1>🌱 Agro Forte</h1>
+    <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
+</header>
+
+<nav>
+    <button onclick="scrollToSection('sobre')">Sobre</button>
+    <button onclick="scrollToSection('sustentabilidade')">Sustentabilidade</button>
+    <button onclick="scrollToSection('tecnologia')">Tecnologia</button>
+</nav>
+
+<section id="usuario">
+    <h2>Bem-vindo!</h2>
+    
+    <label for="nome">Digite seu nome:</label>
+    <input type="text" id="nome">
+    <button onclick="saudacao()">Entrar</button>
+
+    <p id="mensagem"></p>
+</section>
+
+<section id="sobre">
+    <h2>🌾 Sobre o Agro</h2>
+    <p>
+        O agro brasileiro é um dos pilares da economia, responsável por alimentar milhões de pessoas.
+        O desafio atual é produzir mais, preservando o meio ambiente.
+    </p>
+
+    <button onclick="toggleInfo('info1')">Saiba mais</button>
+    <div id="info1" class="hidden">
+        A sustentabilidade no campo envolve práticas como rotação de culturas, uso consciente da água e preservação do solo.
+    </div>
+</section>
+
+<section id="sustentabilidade">
+    <h2>🌍 Sustentabilidade</h2>
+
+    <button onclick="abrirSite('https://www.embrapa.br')">EMBRAPA</button>
+    <button onclick="abrirSite('https://www.fao.org')">FAO</button>
+    <button onclick="abrirSite('https://www.gov.br/agricultura')">Ministério da Agricultura</button>
+
+</section>
+
+<section id="tecnologia">
+    <h2>🚜 Tecnologia no Campo</h2>
+
+    <button onclick="abrirSite('https://www.climatefieldview.com.br')">Agricultura Digital</button>
+    <button onclick="abrirSite('https://www.agrosmart.com.br')">Agro Smart</button>
+    <button onclick="abrirSite('https://www.syngenta.com')">Syngenta</button>
+
+</section>
+
+<section id="contador">
+    <h2>🌿 Impacto Sustentável</h2>
+    <p>Árvores preservadas:</p>
+    <p id="numero">0</p>
+    <button onclick="aumentarContador()">Preservar 🌱</button>
+</section>
+
+<section id="config">
+    <h2>⚙️ Configurações</h2>
+    <button onclick="modoEscuro()">Modo Escuro</button>
+</section>
+
+<footer>
+    <p>Projeto Agrinho - Educação e Sustentabilidade</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
