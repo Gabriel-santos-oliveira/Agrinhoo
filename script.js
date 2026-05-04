@@ -1,69 +1,75 @@
-// Variável contador
 let contador = 0;
 
-// Carregar nome salvo
+// Carregar preferências
 window.onload = function () {
-    const nomeSalvo = localStorage.getItem("nome");
+    let nomeSalvo = localStorage.getItem("nome");
+    let dark = localStorage.getItem("dark");
 
     if (nomeSalvo) {
         document.getElementById("mensagem").innerText =
-            "Bem-vindo(a) novamente, " + nomeSalvo + " 🌱";
+            "Bem-vindo de volta, " + nomeSalvo + " 🌱";
     }
 
-    // Carregar dark mode
-    if (localStorage.getItem("darkMode") === "true") {
+    if (dark === "true") {
         document.getElementById("body").classList.add("dark");
     }
 };
 
 // Salvar nome
 function salvarNome() {
-    const nome = document.getElementById("nome").value.trim();
-    const mensagem = document.getElementById("mensagem");
+    let nome = document.getElementById("nome").value;
 
-    if (nome === "") {
-        mensagem.innerText = "Digite seu nome!";
+    if (nome.trim() === "") {
+        document.getElementById("mensagem").innerText =
+            "Digite seu nome.";
         return;
     }
 
     localStorage.setItem("nome", nome);
-    mensagem.innerText = "Olá, " + nome + "! 🌱";
+
+    document.getElementById("mensagem").innerText =
+        "Olá, " + nome + " 🌱";
 }
 
-// Mostrar informação extra
-function mostrarInfo() {
-    document.getElementById("infoExtra").classList.toggle("hidden");
+// Mostrar conteúdo
+function toggleInfo() {
+    document.getElementById("extra").classList.toggle("hidden");
 }
 
-// Plantar árvore
-function plantarArvore() {
+// Contador
+function plantar() {
     contador++;
+
     document.getElementById("contador").innerText = contador;
 
     let progresso = contador * 10;
-    if (progresso > 100) progresso = 100;
 
-    document.getElementById("barra").style.width = progresso + "%";
+    if (progresso > 100) {
+        progresso = 100;
+    }
+
+    document.getElementById("progresso").style.width =
+        progresso + "%";
 }
 
-// Abrir links externos
+// Abrir sites externos
 function abrirSite(url) {
     window.open(url, "_blank");
 }
 
 // Quiz
-function responderQuiz(correto) {
-    const resultado = document.getElementById("resultadoQuiz");
+function responder(correto) {
+    let resultado = document.getElementById("resultado");
 
     if (correto) {
-        resultado.innerText = "✅ Resposta correta!";
+        resultado.innerText = "✅ Correto!";
     } else {
-        resultado.innerText = "❌ Resposta incorreta!";
+        resultado.innerText = "❌ Resposta incorreta.";
     }
 }
 
 // Scroll suave
-function scrollSection(id) {
+function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({
         behavior: "smooth"
     });
@@ -71,11 +77,12 @@ function scrollSection(id) {
 
 // Modo escuro
 function modoEscuro() {
-    const body = document.getElementById("body");
+    let body = document.getElementById("body");
+
     body.classList.toggle("dark");
 
     localStorage.setItem(
-        "darkMode",
+        "dark",
         body.classList.contains("dark")
     );
 }
