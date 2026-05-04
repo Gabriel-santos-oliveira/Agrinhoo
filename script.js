@@ -1,48 +1,77 @@
-// Variável global do contador
 let contador = 0;
 
-// Saudação personalizada
-function saudacao() {
-    let nome = document.getElementById("nome").value;
-    let mensagem = document.getElementById("mensagem");
+// Carregar nome salvo
+window.onload = function() {
+  let nome = localStorage.getItem("nome");
 
-    if (nome === "") {
-        mensagem.innerText = "Digite seu nome!";
-    } else {
-        mensagem.innerText = "Olá, " + nome + "! 🌱";
-    }
+  if (nome) {
+    document.getElementById("mensagem").innerText = "Bem-vindo de volta, " + nome;
+  }
 }
 
-// Mostrar ou esconder conteúdo
-function toggleInfo(id) {
-    let elemento = document.getElementById(id);
+// Salvar nome
+function salvarNome() {
+  let nome = document.getElementById("nome").value;
 
-    if (elemento.classList.contains("hidden")) {
-        elemento.classList.remove("hidden");
-    } else {
-        elemento.classList.add("hidden");
-    }
+  if (nome !== "") {
+    localStorage.setItem("nome", nome);
+    document.getElementById("mensagem").innerText = "Olá, " + nome + " 🌱";
+  }
 }
 
-// Abrir sites externos
-function abrirSite(url) {
-    window.open(url, "_blank");
+// Mostrar conteúdo
+function toggleInfo() {
+  let el = document.getElementById("extra");
+  el.classList.toggle("hidden");
 }
 
-// Contador de impacto
-function aumentarContador() {
-    contador++;
-    document.getElementById("numero").innerText = contador;
+// Plantar árvore
+function plantar() {
+  contador++;
+  document.getElementById("contador").innerText = contador;
+
+  let progresso = contador * 10;
+  if (progresso > 100) progresso = 100;
+
+  document.getElementById("progresso").style.width = progresso + "%";
 }
 
-// Rolagem suave
+// Quiz
+function resposta(correto) {
+  let res = document.getElementById("resultado");
+
+  if (correto) {
+    res.innerText = "✅ Correto!";
+  } else {
+    res.innerText = "❌ Errado!";
+  }
+}
+
+// Abrir links
+function abrir(url) {
+  window.open(url, "_blank");
+}
+
+// Scroll suave
 function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({
-        behavior: "smooth"
-    });
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
-// Modo escuro
+// Modo escuro com persistência
 function modoEscuro() {
-    document.getElementById("body").classList.toggle("dark");
+  let body = document.getElementById("body");
+  body.classList.toggle("dark");
+
+  if (body.classList.contains("dark")) {
+    localStorage.setItem("dark", "true");
+  } else {
+    localStorage.setItem("dark", "false");
+  }
+}
+
+// Carregar modo escuro
+if (localStorage.getItem("dark") === "true") {
+  document.getElementById("body").classList.add("dark");
 }
