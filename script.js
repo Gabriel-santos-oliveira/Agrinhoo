@@ -1,77 +1,81 @@
+// Variável contador
 let contador = 0;
 
 // Carregar nome salvo
-window.onload = function() {
-  let nome = localStorage.getItem("nome");
+window.onload = function () {
+    const nomeSalvo = localStorage.getItem("nome");
 
-  if (nome) {
-    document.getElementById("mensagem").innerText = "Bem-vindo de volta, " + nome;
-  }
-}
+    if (nomeSalvo) {
+        document.getElementById("mensagem").innerText =
+            "Bem-vindo(a) novamente, " + nomeSalvo + " 🌱";
+    }
+
+    // Carregar dark mode
+    if (localStorage.getItem("darkMode") === "true") {
+        document.getElementById("body").classList.add("dark");
+    }
+};
 
 // Salvar nome
 function salvarNome() {
-  let nome = document.getElementById("nome").value;
+    const nome = document.getElementById("nome").value.trim();
+    const mensagem = document.getElementById("mensagem");
 
-  if (nome !== "") {
+    if (nome === "") {
+        mensagem.innerText = "Digite seu nome!";
+        return;
+    }
+
     localStorage.setItem("nome", nome);
-    document.getElementById("mensagem").innerText = "Olá, " + nome + " 🌱";
-  }
+    mensagem.innerText = "Olá, " + nome + "! 🌱";
 }
 
-// Mostrar conteúdo
-function toggleInfo() {
-  let el = document.getElementById("extra");
-  el.classList.toggle("hidden");
+// Mostrar informação extra
+function mostrarInfo() {
+    document.getElementById("infoExtra").classList.toggle("hidden");
 }
 
 // Plantar árvore
-function plantar() {
-  contador++;
-  document.getElementById("contador").innerText = contador;
+function plantarArvore() {
+    contador++;
+    document.getElementById("contador").innerText = contador;
 
-  let progresso = contador * 10;
-  if (progresso > 100) progresso = 100;
+    let progresso = contador * 10;
+    if (progresso > 100) progresso = 100;
 
-  document.getElementById("progresso").style.width = progresso + "%";
+    document.getElementById("barra").style.width = progresso + "%";
+}
+
+// Abrir links externos
+function abrirSite(url) {
+    window.open(url, "_blank");
 }
 
 // Quiz
-function resposta(correto) {
-  let res = document.getElementById("resultado");
+function responderQuiz(correto) {
+    const resultado = document.getElementById("resultadoQuiz");
 
-  if (correto) {
-    res.innerText = "✅ Correto!";
-  } else {
-    res.innerText = "❌ Errado!";
-  }
-}
-
-// Abrir links
-function abrir(url) {
-  window.open(url, "_blank");
+    if (correto) {
+        resultado.innerText = "✅ Resposta correta!";
+    } else {
+        resultado.innerText = "❌ Resposta incorreta!";
+    }
 }
 
 // Scroll suave
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: "smooth"
-  });
+function scrollSection(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
 }
 
-// Modo escuro com persistência
+// Modo escuro
 function modoEscuro() {
-  let body = document.getElementById("body");
-  body.classList.toggle("dark");
+    const body = document.getElementById("body");
+    body.classList.toggle("dark");
 
-  if (body.classList.contains("dark")) {
-    localStorage.setItem("dark", "true");
-  } else {
-    localStorage.setItem("dark", "false");
-  }
-}
-
-// Carregar modo escuro
-if (localStorage.getItem("dark") === "true") {
-  document.getElementById("body").classList.add("dark");
+    localStorage.setItem(
+        "darkMode",
+        body.classList.contains("dark")
+    );
 }
