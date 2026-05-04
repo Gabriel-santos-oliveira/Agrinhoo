@@ -4,104 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Forte - Futuro Sustentável</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="body">
 
-    <!-- CABEÇALHO -->
-    <header>
-        <h1>🌱 Agro Forte</h1>
-        <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
-    </header>
+<header class="topo">
+    <h1>🌱 Agro Forte</h1>
+    <p>Futuro sustentável: equilíbrio entre produção e meio ambiente</p>
+</header>
 
-    <!-- MENU -->
-    <nav>
-        <button onclick="scrollSection('sobre')">Sobre</button>
-        <button onclick="scrollSection('impacto')">Impacto</button>
-        <button onclick="scrollSection('links')">Links</button>
-        <button onclick="scrollSection('quiz')">Quiz</button>
-    </nav>
+<nav class="menu">
+    <button onclick="scrollToSection('sobre')">Sobre</button>
+    <button onclick="scrollToSection('impacto')">Impacto</button>
+    <button onclick="scrollToSection('tecnologia')">Tecnologia</button>
+    <button onclick="scrollToSection('quiz')">Quiz</button>
+</nav>
 
-    <!-- USUÁRIO -->
-    <section id="usuario">
-        <h2>Bem-vindo(a)</h2>
+<section class="card" id="usuario">
+    <h2>Bem-vindo</h2>
 
-        <label for="nome">Digite seu nome:</label>
-        <input type="text" id="nome" placeholder="Seu nome">
+    <label for="nome">Digite seu nome:</label>
+    <input type="text" id="nome" placeholder="Seu nome">
 
-        <button onclick="salvarNome()">Entrar</button>
+    <button onclick="salvarNome()">Entrar</button>
 
-        <p id="mensagem"></p>
-    </section>
+    <p id="mensagem"></p>
+</section>
 
-    <!-- SOBRE -->
-    <section id="sobre">
-        <h2>🌾 Sobre o Agro</h2>
-        <p>
-            O agro sustentável busca produzir alimentos, gerar riqueza e preservar
-            os recursos naturais para as próximas gerações.
-        </p>
+<section class="card" id="sobre">
+    <h2>🌾 Sobre o Agro Sustentável</h2>
 
-        <button onclick="mostrarInfo()">Saiba mais</button>
+    <p>
+        O agro sustentável busca produzir alimentos com responsabilidade ambiental,
+        conciliando tecnologia, produtividade e preservação da natureza.
+    </p>
 
-        <div id="infoExtra" class="hidden">
-            <p>
-                Técnicas como rotação de culturas, agricultura de precisão e uso
-                racional da água ajudam a reduzir impactos ambientais.
-            </p>
-        </div>
-    </section>
+    <button onclick="toggleInfo()">Saiba Mais</button>
 
-    <!-- IMPACTO -->
-    <section id="impacto">
-        <h2>🌍 Impacto Sustentável</h2>
+    <div id="extra" class="hidden">
+        Práticas como rotação de culturas, irrigação inteligente e conservação do solo
+        garantem um futuro melhor.
+    </div>
+</section>
 
-        <p>Árvores preservadas:</p>
-        <h3 id="contador">0</h3>
+<section class="card" id="impacto">
+    <h2>🌍 Seu Impacto Sustentável</h2>
 
-        <button onclick="plantarArvore()">Preservar 🌱</button>
+    <p>Árvores preservadas:</p>
+    <h3 id="contador">0</h3>
 
-        <div class="barra-container">
-            <div id="barra"></div>
-        </div>
-    </section>
+    <button onclick="plantar()">Preservar 🌱</button>
 
-    <!-- LINKS -->
-    <section id="links">
-        <h2>🔗 Links úteis</h2>
+    <div class="barra">
+        <div id="progresso"></div>
+    </div>
+</section>
 
-        <button onclick="abrirSite('https://www.embrapa.br')">EMBRAPA</button>
-        <button onclick="abrirSite('https://www.fao.org')">FAO</button>
-        <button onclick="abrirSite('https://www.gov.br/agricultura')">Ministério</button>
-        <button onclick="abrirSite('https://www.agrosmart.com.br')">Agro Smart</button>
-    </section>
+<section class="card" id="tecnologia">
+    <h2>🚜 Tecnologia no Campo</h2>
 
-    <!-- QUIZ -->
-    <section id="quiz">
-        <h2>🎮 Quiz Sustentável</h2>
+    <button onclick="abrirSite('https://www.embrapa.br')">EMBRAPA</button>
+    <button onclick="abrirSite('https://www.fao.org')">FAO</button>
+    <button onclick="abrirSite('https://www.gov.br/agricultura')">Ministério</button>
+    <button onclick="abrirSite('https://www.agrosmart.com.br')">AgroSmart</button>
+</section>
 
-        <p>Qual prática contribui para a sustentabilidade?</p>
+<section class="card" id="quiz">
+    <h2>🎮 Quiz Sustentável</h2>
 
-        <button onclick="responderQuiz(true)">Rotação de culturas</button>
-        <button onclick="responderQuiz(false)">Desmatamento</button>
+    <p>Qual prática ajuda o meio ambiente?</p>
 
-        <p id="resultadoQuiz"></p>
-    </section>
+    <button onclick="responder(true)">Rotação de culturas</button>
+    <button onclick="responder(false)">Desmatamento</button>
 
-    <!-- CONFIGURAÇÕES -->
-    <section>
-        <h2>⚙️ Configurações</h2>
-        <button onclick="modoEscuro()">Modo Escuro</button>
-    </section>
+    <p id="resultado"></p>
+</section>
 
-    <!-- RODAPÉ -->
-    <footer>
-        <p>Projeto Agrinho - Agro Forte</p>
-    </footer>
+<section class="card">
+    <h2>⚙️ Configurações</h2>
+    <button onclick="modoEscuro()">Modo Escuro</button>
+</section>
 
-    <!-- JS -->
-    <script src="js/script.js"></script>
+<footer>
+    <p>Projeto Agrinho 2026</p>
+</footer>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>
